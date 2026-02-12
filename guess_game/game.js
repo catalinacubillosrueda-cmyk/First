@@ -13,8 +13,22 @@ function preguntar() {
     if (isNaN(numero) || numero < 1 || numero > 100){
         console.log("ingrese un numero entre 1 y 100");
     }else if (numero === number) {
-        console.log("Wooow adivinaaste el numero ${number} en ${intent}")
+        console.log("Wooow adivinaaste el numero ${number} en ${intent} intentos")
+        guessed = true;
+        readline.close();
+        return;
+    } else {
+        const diference = Math.abs(numero - number);
+        if (diference <= 10) {
+            console.log("Caliente");
+        } else if (diference <= 20){
+            console.log("Tibio");
+        }else {
+            console.log("Frío");
+        }
     }
+    if(!guessed) preguntar();
     }
 }
+preguntar();
 
